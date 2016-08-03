@@ -44,7 +44,3 @@ class TestModelsAndQueries(TestCase):
 		self.assertIsNotNone(books)
 
 
-
-
-
-
