@@ -1,0 +1,29 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block body %}
+	<div class='container-fluid'>
+		<h2 class='col-md-4 col-md-offset-4 text-center' style = 'margin-top: 50px'>BookPro</h2>
+		<div class='col-md-4 col-md-offset-4 text-center' style = 'margin-top: 20px'>
+		{{ wtf.quick_form(form) }}
+		</div>
+		<hr>
+	</div>
+		<div class='col-md-4 col-md-offset-4 text-center' style = 'margin-top: 25px'>
+			<a class='btn btn-primary' href="{{ url_for('main.index')}}">Search books by name</a>
+		</div>
+
+		{% if books %}
+		<div class='col-md-4 col-md-offset-4' style = 'margin-top: 25px'>
+			<ul>
+				{% for book in books %}
+					<li>{{ book.name }}<small> by {{ book.author }}</small></li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+		
+
+	</div>
+{% endblock %}
