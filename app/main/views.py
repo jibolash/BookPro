@@ -24,3 +24,7 @@ def category():
 		category = Category.query.filter_by(name=category_name).first()
 		books = Book.query.filter_by(category = category).all()
 	return render_template('category.html', form  = form, books = books)
+
+@main.route('/profile/<name>')
+def profile(name):
+	return 'Hello %s %s' %name
